@@ -12,5 +12,5 @@ function isOffSide (attakers, defenders) {
 for (let i = 0; i < atk_positions.length; i++) {
   atk_positions[i].sort(numericalOrdering)
   defd_positions[i].sort(numericalOrdering)
-  console.log(`Situation ${i+1}: is in offside position?\n${isOffSide(atk_positions[i],defd_positions[i])}`)
+  console.log(`Situation ${i+1}: is in offside position? ${isOffSide(atk_positions[i],defd_positions[i])}`)
 }

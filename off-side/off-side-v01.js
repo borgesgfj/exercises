@@ -10,4 +10,4 @@ function isOffSide (attakers, defenders) {
     return false
   }
 }
-console.log(`Is in off-side position?\n${isOffSide(atk_pos, defd_pos) ? "Y" : "N"}`)
+console.log(`Is in off-side position? ${isOffSide(atk_pos, defd_pos) ? "Y" : "N"}`)
