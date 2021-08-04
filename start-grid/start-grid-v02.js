@@ -1,26 +1,22 @@
-const start_array = [1, 2, 3, 4, 5]
-const finish_array = [3, 1, 2, 5, 4]
+const startArray = [1, 2, 3, 4, 5]
+const finishArray = [3, 1, 2, 5, 4]
 
 function createPatialGrid (array, instantPosition, finalPosition) {
   const element = array[instantPosition]
   array.splice(instantPosition,1)
   array.splice(finalPosition, 0, element)
-  return array
 }
 
-function calculateOvrtkngs (partialPosit_array, finalPosit_array) {
+function calculateOvrtkngs (partialPositArray, finalPositArray) {
   let num_ovtk = 0
-  const numOfparticipants = finalPosit_array.length
-  for (let i = 0; i < numOfparticipants; i++) {
-    const competitor = finalPosit_array[i]
-    const competitor_instantPosit = partialPosit_array.indexOf(competitor)
-    let posit_gain = competitor_instantPosit - i
-    if (i < competitor_instantPosit) {
-      num_ovtk += posit_gain
-      createPatialGrid(partialPosit_array, competitor_instantPosit, i)
+  for (let i = 0; i < finalPositArray.length; i++) {
+    const competitorInstantPosit = partialPositArray.indexOf(finalPositArray[i])
+    if (i < competitorInstantPosit) {
+      num_ovtk += (competitorInstantPosit - i)
+      createPatialGrid(partialPositArray, competitorInstantPosit, i)
     }
   }
   return num_ovtk
 }
 
-console.log(`We had at leat ${calculateOvrtkngs(start_array, finish_array)} overtakes`)
+console.log(`We had at leat ${calculateOvrtkngs(startArray, finishArray)} overtakes`)
