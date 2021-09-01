@@ -1,4 +1,4 @@
-const arrayEntries = [
+const testCases = [
   [
     ['cardonha', 9],
     ['infelizreprovado', 3],
@@ -23,8 +23,8 @@ function sort2dArray(a, b) {
   }
   return b[1] - a[1];
 }
-for (let i = 0; i < arrayEntries.length; i++) {
-  arrayEntries[i].sort(sort2dArray);
-  const failedStudant = arrayEntries[i][arrayEntries[i].length - 1][0];
+for (let i = 0; i < testCases.length; i++) {
+  testCases[i].sort(sort2dArray);
+  const failedStudant = testCases[i][testCases[i].length - 1][0];
   console.log(`Instância ${i + 1} \n A pessoa reprovada é: ${failedStudant}`);
 }
