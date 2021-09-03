@@ -34,9 +34,7 @@ function analysisOfCases(obejectCase) {
   const braceletSequenceLenght = obejectCase.braceletSequence.length;
   let numOfRepetition = 2;
   if (braceletSequenceLenght < forbiddenSequenceLenght) {
-    numOfRepetition =
-      Math.floor(forbiddenSequenceLenght / braceletSequenceLenght) +
-      (forbiddenSequenceLenght % braceletSequenceLenght);
+    numOfRepetition = Math.ceil(forbiddenSequenceLenght / braceletSequenceLenght);
   }
   const circularSequence = obejectCase.braceletSequence.repeat(numOfRepetition);
   const inverseSequence = circularSequence.split("").reverse("").join("");
