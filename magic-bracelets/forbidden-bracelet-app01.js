@@ -23,16 +23,32 @@ const testCases = [
     forbiddenSequence: "yyt",
     braceletSequence: "ttyttyttyytty",
   },
+  {
+    forbiddenSequence: "avava",
+    braceletSequence: "av",
+  },
 ];
 
-for (let i = 0; i < testCases.length; i++) {
-  const circularSequence = testCases[i].braceletSequence.repeat(2);
+function analysisOfCases(obejectCase) {
+  const forbiddenSequenceLenght = obejectCase.forbiddenSequence.length;
+  const braceletSequenceLenght = obejectCase.braceletSequence.length;
+  let numOfRepetition = 2;
+  if (braceletSequenceLenght < forbiddenSequenceLenght) {
+    numOfRepetition =
+      Math.floor(forbiddenSequenceLenght / braceletSequenceLenght) +
+      (forbiddenSequenceLenght % braceletSequenceLenght);
+  }
+  const circularSequence = obejectCase.braceletSequence.repeat(numOfRepetition);
   const inverseSequence = circularSequence.split("").reverse("").join("");
   const isForbidden =
-    circularSequence.includes(testCases[i].forbiddenSequence) ||
-    inverseSequence.includes(testCases[i].forbiddenSequence)
+    circularSequence.includes(obejectCase.forbiddenSequence) ||
+    inverseSequence.includes(obejectCase.forbiddenSequence)
       ? "S"
       : "N";
+  return isForbidden;
+}
+
+for (let i = 0; i < testCases.length; i++) {
   console.log(testCases[i].braceletSequence);
-  console.log(isForbidden);
+  console.log(analysisOfCases(testCases[i]));
 }
