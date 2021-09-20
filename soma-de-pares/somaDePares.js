@@ -1,5 +1,5 @@
 const testCase = [[1, 3, 4, 5, 6, 2, 11], [1,3, 8, 5, 9]]
-const sumResult = 12
+const sumResult = 10
 function selectNumberPairs(arrayNumbers1, arrayNumbers2) {
   let validPairs = []
   for (let i = 0; i < arrayNumbers1.length; i++) {
