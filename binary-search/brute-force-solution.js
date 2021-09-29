@@ -13,14 +13,13 @@ function checkNumberIndex(listOfNumbers, listOfQueries) {
   let resultsQueries = []
   for(let j = 0; j < listOfQueries.length; j++){
     let elementIndex = -1;
-    resultsQueries.push(elementIndex)
     for(let i = 0; i < listOfNumbers.length; i++) {
       if(listOfNumbers[i] == listOfQueries[j]) {
         elementIndex = i;
-        resultsQueries.splice(j, 1, elementIndex)
         break
       }
     }
+    resultsQueries.push(elementIndex)
   }
   return resultsQueries
 }
