@@ -5,22 +5,27 @@ const testCase = [
   ],
 ];
 const sumResult = 10;
-const numericalOrdering = (a, b) => a - b;
-const mapNumbers = new Map();
-const convertArrayToMap = (number, indexInArray) => mapNumbers.set(number, indexInArray);
-function selectNumberPairs(map, array) {
-  let validPairs = [];
-  for (let i = 0; i < array.length; i++) {
-    const difference = sumResult - array[i];
-    if(map.has(difference)){
-      validPairs.push([difference, array[i]])
-    }
+
+function convertArrayToMap(array) {
+  const mapNumbers = new Map();
+  for (let j = 0; j < array.length; j++) {
+    mapNumbers.set(array[j], j);
   }
-  return validPairs
-}
-for(let n = 0; n < testCase.length; n++) {
-  testCase[n][0].forEach(convertArrayToMap);
-  console.log(`Caso ${n + 1}: Pares de números cuja soma é ${sumResult}`)
-  console.log(selectNumberPairs(mapNumbers, testCase[n][1]));
+  return mapNumbers;
 }
 
+function selectNumberPairs(map, array) {
+  const validPairs = [];
+  for (let i = 0; i < array.length; i++) {
+    const difference = sumResult - array[i];
+    if (map.has(difference)) {
+      validPairs.push([difference, array[i]]);
+    }
+  }
+  return validPairs;
+}
+
+for (let n = 0; n < testCase.length; n++) {
+  console.log(`Caso ${n + 1}: Pares de números cuja soma é ${sumResult}`);
+  console.log(selectNumberPairs(convertArrayToMap(testCase[n][0]), testCase[n][1]));
+}
