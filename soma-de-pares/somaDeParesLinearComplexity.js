@@ -14,12 +14,13 @@ function convertArrayToMap(array) {
   return mapNumbers;
 }
 
-function selectNumberPairs(map, array) {
+function selectNumberPairs(arrayNumbers1, arrayNumbers2) {
   const validPairs = [];
-  for (let i = 0; i < array.length; i++) {
-    const difference = sumResult - array[i];
+  const map = convertArrayToMap(arrayNumbers1);
+  for (let i = 0; i < arrayNumbers2.length; i++) {
+    const difference = sumResult - arrayNumbers2[i];
     if (map.has(difference)) {
-      validPairs.push([difference, array[i]]);
+      validPairs.push([difference, arrayNumbers2[i]]);
     }
   }
   return validPairs;
@@ -27,5 +28,5 @@ function selectNumberPairs(map, array) {
 
 for (let n = 0; n < testCase.length; n++) {
   console.log(`Caso ${n + 1}: Pares de números cuja soma é ${sumResult}`);
-  console.log(selectNumberPairs(convertArrayToMap(testCase[n][0]), testCase[n][1]));
+  console.log(selectNumberPairs(testCase[n][0], testCase[n][1]));
 }
